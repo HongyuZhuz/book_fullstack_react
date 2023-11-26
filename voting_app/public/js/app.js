@@ -1,5 +1,6 @@
 class ProductList extends React.Component {
   render(){
+    const products = Seed.products.sort((a,b)=>b.votes-a.votes)
       const productComponents = Seed.products.map((product)=>(
         <Product 
         key={'product-'+product.id}
