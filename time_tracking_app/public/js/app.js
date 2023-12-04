@@ -1,4 +1,3 @@
-test2()
 class TimersDashboard extends React.Component{
     render(){
         return(
@@ -89,6 +88,9 @@ class TimerForm extends React.Component{
     }
 }
 
+
+
+
 class ToggleableTimerForm extends React.Component{
     render(){
         if (this.props.isOpen){
@@ -145,4 +147,4 @@ class Timer extends React.Component{
 ReactDOM.render(
     <TimersDashboard />,
     document.getElementById('content')
-)
+) 
