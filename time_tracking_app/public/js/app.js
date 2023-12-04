@@ -1,3 +1,4 @@
+test2()
 class TimersDashboard extends React.Component{
     render(){
         return(
