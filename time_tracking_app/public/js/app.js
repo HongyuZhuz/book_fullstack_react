@@ -67,12 +67,15 @@ class EditableTimer extends React.Component {
         editFormOpen :false,
     };
     handleEditClick = () =>{
-        console.log("test")
         this.openForm();
     }
     handleFormClose = () =>{
         this.closeForm();
     }
+    handleSubmit =(timer) =>{
+        this.props.onFormSubmit(timer);
+        this.closeForm();
+    };
 
     closeForm = () =>{
         this.setState({editFormOpen:false});
@@ -89,6 +92,8 @@ class EditableTimer extends React.Component {
                     id = {this.props.id}
                     title={this.props.title}
                     project = {this.props.project}
+                    onFormSubmit = {this.handleSubmit}
+                    onFormClose = {this.handleFormClose}
                 />
             );
         }else{
