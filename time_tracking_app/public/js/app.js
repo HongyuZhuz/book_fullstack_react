@@ -66,6 +66,22 @@ class EditableTimer extends React.Component {
     state = {
         editFormOpen :false,
     };
+    handleEditClick = () =>{
+        console.log("test")
+        this.openForm();
+    }
+    handleFormClose = () =>{
+        this.closeForm();
+    }
+
+    closeForm = () =>{
+        this.setState({editFormOpen:false});
+    }
+    openForm = () =>{
+        this.setState({editFormOpen:true});
+    }
+
+
     render(){
         if (this.state.editFormOpen){
             return(
@@ -83,6 +99,7 @@ class EditableTimer extends React.Component {
                     project = {this.props.project}
                     elapsed = {this.props.elapsed}
                     runningSince = {this.props.runningSince}
+                    onEditClick={this.handleEditClick}
                 />
             )
         }
@@ -180,7 +197,6 @@ class ToggleableTimerForm extends React.Component{
 class Timer extends React.Component{
     render(){
         const elapsedString = helpers.renderElapsedString(this.props.elapsed);
-        
         return(
             <div className = 'ui centered card'>
                 <div className = 'content'>
@@ -196,18 +212,21 @@ class Timer extends React.Component{
                         </h2>
                     </div>
                     <div className = 'extra content'>
-                        <span className = 'right floated edit icon'>
+                        <span 
+                        className = 'right floated edit icon'
+                        onClick={this.props.onEditClick}
+                        >
                             <i className = 'edit icon' />
                         </span>
                         <span className = 'right floated trash icon'>
                             <i className = 'trash icon'/>
                         </span>
                     </div>
-                    <div className = 'ui bottom attached blue basic button'>
-                        Start
-                    </div>
                 </div>
-            </div>
+                <div className = 'ui bottom attached blue basic button'>
+                        Start
+                </div>
+                </div>
         )
 
     }
