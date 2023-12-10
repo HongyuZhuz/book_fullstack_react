@@ -84,13 +84,6 @@ class EditableTimer extends React.Component {
         this.setState({editFormOpen:true});
     }
 
-
-
-    handleEdit = () =>{
-        console.log("clicked edit");
-        this.setState({editFormOpen:true});
-        
-    }
     render(){
         if (this.state.editFormOpen){
             return(
