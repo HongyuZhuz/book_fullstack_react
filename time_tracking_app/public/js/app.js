@@ -66,6 +66,12 @@ class EditableTimer extends React.Component {
     state = {
         editFormOpen :false,
     };
+
+    handleEdit = () =>{
+        console.log("clicked edit");
+        this.setState({editFormOpen:true});
+        
+    }
     render(){
         if (this.state.editFormOpen){
             return(
@@ -78,11 +84,12 @@ class EditableTimer extends React.Component {
         }else{
             return(
                 <Timer 
-                id = {this.props.id}
+                    id = {this.props.id}
                     title = {this.props.title}
                     project = {this.props.project}
                     elapsed = {this.props.elapsed}
                     runningSince = {this.props.runningSince}
+                    onEditClick = {this.handleEdit}
                 />
             )
         }
@@ -155,7 +162,6 @@ class ToggleableTimerForm extends React.Component{
     handleFormSubmit = (timer)=>{
         this.props.onFormSubmit(timer);
         this.setState({isOpen:false});
-        console.log("submitted")
     };
 
     render(){
@@ -196,7 +202,10 @@ class Timer extends React.Component{
                         </h2>
                     </div>
                     <div className = 'extra content'>
-                        <span className = 'right floated edit icon'>
+                        <span 
+                            className = 'right floated edit icon'
+                            onClick = {console.log("clicked")}
+                        >
                             <i className = 'edit icon' />
                         </span>
                         <span className = 'right floated trash icon'>
